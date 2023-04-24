@@ -1,0 +1,13 @@
+{ns hl7-fhir-uv-ips.Device-observer-uv-ips,
+ import #{hl7-fhir-r4-core.Device zen.fhir},
+ schema {:zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen/desc "This profile represents the constraints applied to the Device resource by the IPS project, which specifies an international patient summary based on the FHIR standard R4.;\r\n\r\nThis profile describes a device that plays the role of observer or performer.",
+         :zen.fhir/type "Device",
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/Device-observer-uv-ips",
+         :zen.fhir/version "0.6.22-2",
+         :confirms #{hl7-fhir-r4-core.Device/schema zen.fhir/Resource},
+         :type zen/map,
+         :keys {:identifier {:type zen/vector,
+                             :every {:fhir/flags #{:MS}}},
+                :manufacturer {:fhir/flags #{:MS}},
+                :modelNumber {:fhir/flags #{:MS}}}}}

@@ -1,0 +1,16 @@
+{ns hl7-fhir-uv-ips.CodeableConcept-uv-ips,
+ import #{zen.fhir
+          hl7-fhir-uv-ips.Coding-uv-ips
+          hl7-fhir-r4-core.CodeableConcept},
+ schema {:zen.fhir/version "0.6.22-2",
+         :confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+         :zen/tags #{zen/schema zen.fhir/structure-schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips",
+         :type zen/map,
+         :zen/desc "This profile represents the constraint applied to the CodeableConcept data type by the International Patient Summary (IPS) FHIR Implementation Guide to use the Coding-uv-ips data type profile.",
+         :fhir/flags #{:MS},
+         :keys {:coding {:type zen/vector,
+                         :every {:confirms #{hl7-fhir-uv-ips.Coding-uv-ips/schema},
+                                 :fhir/flags #{:MS}}},
+                :text {:fhir/flags #{:MS}}},
+         :zen.fhir/type "CodeableConcept"}}

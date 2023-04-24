@@ -1,0 +1,39 @@
+{ns hl7-fhir-uv-ips.Observation-tobaccouse-uv-ips,
+ import #{hl7-fhir-r4-core.Observation
+          zen.fhir
+          hl7-fhir-uv-ips.Patient-uv-ips
+          hl7-fhir-uv-ips.value-set.current-smoking-status-uv-ips
+          hl7-fhir-uv-ips.Observation-tobaccouse-uv-ips
+          hl7-fhir-uv-ips.CodeableConcept-uv-ips},
+ referenceRange-schema {:zen/tags #{zen/schema
+                                    zen.fhir/structure-schema},
+                        :zen.fhir/version "0.6.22-2"},
+ schema {:zen.fhir/version "0.6.22-2",
+         :confirms #{hl7-fhir-r4-core.Observation/schema
+                     zen.fhir/Resource},
+         :zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-tobaccouse-uv-ips",
+         :require #{:effective :code :subject},
+         :type zen/map,
+         :zen/desc "This profile constrains the Observation resource to represent Tobacco use assessment in a patient summary.",
+         :keys {:code {:match {:coding #{{:system "http://loinc.org",
+                                          :code "72166-2"}}},
+                       :confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
+                       :fhir/flags #{:MS}},
+                :subject {:type zen/map,
+                          :keys {:reference {:fhir/flags #{:MS}}},
+                          :require #{:reference},
+                          :fhir/flags #{:MS},
+                          :confirms #{zen.fhir/Reference},
+                          :zen.fhir/reference {:refers #{hl7-fhir-uv-ips.Patient-uv-ips/schema}}},
+                :effective {:fhir/polymorphic true,
+                            :type zen/map,
+                            :fhir/flags #{:MS}},
+                :value {:type zen/map,
+                        :keys {:CodeableConcept {:confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
+                                                 :fhir/flags #{:MS},
+                                                 :zen.fhir/value-set {:symbol hl7-fhir-uv-ips.value-set.current-smoking-status-uv-ips/value-set,
+                                                                      :strength :required}}}},
+                :component {:type zen/vector, :maxItems 0},
+                :referenceRange {:confirms #{hl7-fhir-uv-ips.Observation-tobaccouse-uv-ips/referenceRange-schema}}},
+         :zen.fhir/type "Observation"}}

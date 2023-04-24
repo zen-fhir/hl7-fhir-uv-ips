@@ -1,0 +1,73 @@
+{ns hl7-fhir-uv-ips.Observation-results-pathology-uv-ips,
+ import #{hl7-fhir-uv-ips.value-set.result-coded-value-pathology-gps-uv-ips
+          zen.fhir
+          hl7-fhir-uv-ips.Patient-uv-ips
+          hl7-fhir-uv-ips.Organization-uv-ips
+          hl7-fhir-uv-ips.Practitioner-uv-ips
+          hl7-fhir-uv-ips.Range-uv-ips
+          hl7-fhir-uv-ips.Ratio-uv-ips
+          hl7-fhir-uv-ips.Observation-results-pathology-uv-ips
+          hl7-fhir-uv-ips.Observation-results-uv-ips
+          hl7-fhir-uv-ips.PractitionerRole-uv-ips
+          hl7-fhir-uv-ips.Quantity-uv-ips
+          hl7-fhir-uv-ips.value-set.results-pathology-observations-uv-ips
+          hl7-fhir-uv-ips.Specimen-uv-ips
+          hl7-fhir-uv-ips.CodeableConcept-uv-ips},
+ referenceRange-schema {:zen/tags #{zen/schema
+                                    zen.fhir/structure-schema},
+                        :zen.fhir/version "0.6.22-2"},
+ schema {:zen.fhir/version "0.6.22-2",
+         :confirms #{hl7-fhir-uv-ips.Observation-results-uv-ips/schema
+                     zen.fhir/Resource},
+         :zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-pathology-uv-ips",
+         :require #{:category :performer},
+         :type zen/map,
+         :zen/desc "This profile constrains the Observation resource to represent results produced by pathology studies in a patient summary.",
+         :keys {:category {:type zen/vector,
+                           :slicing {:slices {"laboratory" {:schema {:type zen/vector,
+                                                                     :minItems 1,
+                                                                     :maxItems 1},
+                                                            :filter {:engine :match,
+                                                                     :match {:coding #{{:system "http://terminology.hl7.org/CodeSystem/observation-category",
+                                                                                        :code "laboratory"}}}}}}},
+                           :every {:confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
+                                   :fhir/flags #{:MS}},
+                           :minItems 1},
+                :code {:confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
+                       :fhir/flags #{:MS},
+                       :zen.fhir/value-set {:symbol hl7-fhir-uv-ips.value-set.results-pathology-observations-uv-ips/value-set,
+                                            :strength :extensible}},
+                :subject {:fhir/flags #{:MS},
+                          :confirms #{zen.fhir/Reference},
+                          :zen.fhir/reference {:refers #{hl7-fhir-uv-ips.Patient-uv-ips/schema}}},
+                :performer {:type zen/vector,
+                            :every {:fhir/flags #{:MS},
+                                    :confirms #{zen.fhir/Reference},
+                                    :zen.fhir/reference {:refers #{hl7-fhir-uv-ips.PractitionerRole-uv-ips/schema
+                                                                   hl7-fhir-uv-ips.Practitioner-uv-ips/schema
+                                                                   hl7-fhir-uv-ips.Organization-uv-ips/schema}}},
+                            :minItems 1},
+                :value {:fhir/polymorphic true,
+                        :type zen/map,
+                        :keys {:string {:fhir/flags #{:MS}},
+                               :Range {:confirms #{hl7-fhir-uv-ips.Range-uv-ips/schema}},
+                               :Ratio {:confirms #{hl7-fhir-uv-ips.Ratio-uv-ips/schema}},
+                               :CodeableConcept {:confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
+                                                 :fhir/flags #{:MS},
+                                                 :zen.fhir/value-set {:symbol hl7-fhir-uv-ips.value-set.result-coded-value-pathology-gps-uv-ips/value-set,
+                                                                      :strength :preferred}},
+                               :Quantity {:confirms #{hl7-fhir-uv-ips.Quantity-uv-ips/schema},
+                                          :fhir/flags #{:MS}}},
+                        :fhir/flags #{:MS}},
+                :specimen {:confirms #{hl7-fhir-uv-ips.Specimen-uv-ips/schema},
+                           :fhir/flags #{:MS}},
+                :hasMember {:type zen/vector,
+                            :every {:type zen/map,
+                                    :keys {:reference {:fhir/flags #{:MS}}},
+                                    :fhir/flags #{:MS},
+                                    :confirms #{zen.fhir/Reference},
+                                    :zen.fhir/reference {:refers #{hl7-fhir-uv-ips.Observation-results-uv-ips/schema
+                                                                   hl7-fhir-uv-ips.Observation-results-pathology-uv-ips/schema}}}},
+                :referenceRange {:confirms #{hl7-fhir-uv-ips.Observation-results-pathology-uv-ips/referenceRange-schema}}},
+         :zen.fhir/type "Observation"}}

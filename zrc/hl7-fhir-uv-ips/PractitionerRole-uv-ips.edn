@@ -1,0 +1,23 @@
+{ns hl7-fhir-uv-ips.PractitionerRole-uv-ips,
+ import #{zen.fhir
+          hl7-fhir-uv-ips.Organization-uv-ips
+          hl7-fhir-uv-ips.Practitioner-uv-ips
+          hl7-fhir-r4-core.PractitionerRole
+          hl7-fhir-uv-ips.CodeableConcept-uv-ips},
+ schema {:zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen/desc "This profile constrains the PractitionerRole resource to represent a practitioner acting as observer for observattion results for a specified organization.",
+         :zen.fhir/type "PractitionerRole",
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/PractitionerRole-uv-ips",
+         :zen.fhir/version "0.6.22-2",
+         :confirms #{hl7-fhir-r4-core.PractitionerRole/schema
+                     zen.fhir/Resource},
+         :type zen/map,
+         :keys {:practitioner {:fhir/flags #{:MS},
+                               :confirms #{zen.fhir/Reference},
+                               :zen.fhir/reference {:refers #{hl7-fhir-uv-ips.Practitioner-uv-ips/schema}}},
+                :organization {:fhir/flags #{:MS},
+                               :confirms #{zen.fhir/Reference},
+                               :zen.fhir/reference {:refers #{hl7-fhir-uv-ips.Organization-uv-ips/schema}}},
+                :code {:type zen/vector,
+                       :slicing {:slices {}},
+                       :every {:confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema}}}}}}

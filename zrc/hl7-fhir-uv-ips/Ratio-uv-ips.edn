@@ -1,0 +1,16 @@
+{ns hl7-fhir-uv-ips.Ratio-uv-ips,
+ import #{hl7-fhir-r4-core.Ratio
+          zen.fhir
+          hl7-fhir-uv-ips.Quantity-uv-ips},
+ schema {:zen.fhir/version "0.6.22-2",
+         :confirms #{hl7-fhir-r4-core.Ratio/schema},
+         :zen/tags #{zen/schema zen.fhir/structure-schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/Ratio-uv-ips",
+         :type zen/map,
+         :zen/desc "Ratio data type, constrained to use UCUM as the code system for units.",
+         :fhir/flags #{:MS},
+         :keys {:numerator {:confirms #{hl7-fhir-uv-ips.Quantity-uv-ips/schema},
+                            :fhir/flags #{:MS}},
+                :denominator {:confirms #{hl7-fhir-uv-ips.Quantity-uv-ips/schema},
+                              :fhir/flags #{:MS}}},
+         :zen.fhir/type "Ratio"}}

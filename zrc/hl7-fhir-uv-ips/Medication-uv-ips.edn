@@ -1,0 +1,40 @@
+{ns hl7-fhir-uv-ips.Medication-uv-ips,
+ import #{hl7-fhir-uv-ips.value-set.medicine-doseform
+          zen.fhir
+          hl7-fhir-uv-ips.value-set.medication-example-uv-ips
+          hl7-fhir-uv-ips.Ratio-uv-ips
+          hl7-fhir-r4-core.Medication
+          hl7-fhir-uv-ips.value-set.medicine-active-substances-uv-ips
+          hl7-fhir-uv-ips.CodeableConcept-uv-ips},
+ schema {:zen.fhir/version "0.6.22-2",
+         :confirms #{hl7-fhir-r4-core.Medication/schema
+                     zen.fhir/Resource},
+         :zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/Medication-uv-ips",
+         :require #{:code},
+         :type zen/map,
+         :zen/desc "This profile represents the constraints applied to the Medication resource by the International Patient Summary (IPS) FHIR Implementation Guide, based on FHIR R4. A medication is described in the patient summary as an instance of a Medication resource constrained by this profile.",
+         :keys {:code {:type zen/vector,
+                       :slicing {:slices {}},
+                       :confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
+                       :fhir/flags #{:MS},
+                       :zen.fhir/value-set {:symbol hl7-fhir-uv-ips.value-set.medication-example-uv-ips/value-set,
+                                            :strength :example},
+                       :zen/desc "Medication that was administered or was to be administered (medication code from any code system)"},
+                :form {:confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
+                       :fhir/flags #{:MS},
+                       :zen.fhir/value-set {:symbol hl7-fhir-uv-ips.value-set.medicine-doseform/value-set,
+                                            :strength :preferred}},
+                :ingredient {:type zen/vector,
+                             :every {:type zen/map,
+                                     :keys {:item {:type zen/map,
+                                                   :keys {:CodeableConcept {:confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
+                                                                            :type zen/map,
+                                                                            :keys {:text {:fhir/flags #{:MS}}},
+                                                                            :fhir/flags #{:MS},
+                                                                            :zen.fhir/value-set {:symbol hl7-fhir-uv-ips.value-set.medicine-active-substances-uv-ips/value-set,
+                                                                                                 :strength :preferred}}}},
+                                            :strength {:confirms #{hl7-fhir-uv-ips.Ratio-uv-ips/schema},
+                                                       :fhir/flags #{:MS}}},
+                                     :fhir/flags #{:MS}}}},
+         :zen.fhir/type "Medication"}}

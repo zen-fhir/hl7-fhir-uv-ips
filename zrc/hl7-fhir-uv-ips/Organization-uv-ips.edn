@@ -1,0 +1,12 @@
+{ns hl7-fhir-uv-ips.Organization-uv-ips,
+ import #{zen.fhir hl7-fhir-r4-core.Organization},
+ schema {:zen.fhir/version "0.6.22-2",
+         :confirms #{hl7-fhir-r4-core.Organization/schema
+                     zen.fhir/Resource},
+         :zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/Organization-uv-ips",
+         :require #{:name},
+         :type zen/map,
+         :zen/desc "This profile constrains the Organization resource to represent an organization that acts as performer or observer for a result observation (laboratory, pathology or imaging), or as performer for a procedure.",
+         :keys {:name {:fhir/flags #{:MS}}},
+         :zen.fhir/type "Organization"}}

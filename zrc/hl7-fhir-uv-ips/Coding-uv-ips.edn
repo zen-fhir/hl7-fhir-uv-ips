@@ -1,0 +1,21 @@
+{ns hl7-fhir-uv-ips.Coding-uv-ips,
+ import #{zen.fhir
+          hl7-fhir-r4-core.Coding
+          hl7-fhir-r4-core.translation},
+ schema {:zen.fhir/version "0.6.22-2",
+         :confirms #{hl7-fhir-r4-core.Coding/schema},
+         :zen/tags #{zen/schema zen.fhir/structure-schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/Coding-uv-ips",
+         :type zen/map,
+         :zen/desc "This profile extends the capabilities of the coding data type to support multi-language designations (display).\r\nIt relies on the Translation extension.",
+         :fhir/flags #{:MS},
+         :keys {:system {:fhir/flags #{:MS}},
+                :version {:fhir/flags #{:MS}},
+                :code {:fhir/flags #{:MS}},
+                :display {:fhir/flags #{:MS}},
+                :_display {:type zen/map,
+                           :keys {:translation {:confirms #{hl7-fhir-r4-core.translation/schema},
+                                                :fhir/extensionUri "http://hl7.org/fhir/StructureDefinition/translation",
+                                                :fhir/flags #{:MS},
+                                                :zen/desc "Language Translation (Localization)"}}}},
+         :zen.fhir/type "Coding"}}

@@ -1,0 +1,20 @@
+{ns hl7-fhir-uv-ips.value-set.medication-example-uv-ips,
+ import #{zen.fhir},
+ value-set {:zen/tags #{zen.fhir/value-set},
+            :zen/desc "This value set provides an example of possible coded concepts representing:  \n* medicinal products  \n* packaged medicinal products  \n* medications based on their generic composition of:   \n  * active substance(s) (e.g. IDMP PhPID Active Substance Stratum Level 1)  \n  * active substance(s) with strength (e.g. IDMP PhPID Active Substance Stratum Level 2)  \n  * active substance(s) with administrable dose form (e.g. IDMP PhPID Active Substance Stratum Level 3)   \n  * active substance(s) with strength and administrable dose form (e.g. IDMP PhPID Active Substance Stratum Level 4)\r\n  \n\nPlease note that this Value set is not representing any IDMP identifier. It is envisioned that a future version will be based on the IDMP IDs when available for actual use.",
+            :zen.fhir/version "0.6.22-2",
+            :fhir/code-systems #{{:fhir/url "http://snomed.info/sct",
+                                  :zen.fhir/content :bundled}
+                                 {:fhir/url "http://hl7.org/fhir/sid/ndc",
+                                  :zen.fhir/content :bundled}
+                                 {:fhir/url "http://www.nlm.nih.gov/research/umls/rxnorm",
+                                  :zen.fhir/content :bundled}},
+            :uri "http://hl7.org/fhir/uv/ips/ValueSet/medication-example-uv-ips",
+            :version "1.0.0",
+            :ftr {:module "hl7-fhir-uv-ips",
+                  :source-url "https://storage.googleapis.com",
+                  :source-type :cloud-storage,
+                  :ftr-path "ftr",
+                  :tag "init",
+                  :validation-index {:type :nippy,
+                                     :file "index.nippy"}}}}

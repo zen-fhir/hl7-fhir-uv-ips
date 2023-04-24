@@ -1,0 +1,27 @@
+{ns hl7-fhir-uv-ips.Device-uv-ips,
+ import #{hl7-fhir-r4-core.Device
+          zen.fhir
+          hl7-fhir-uv-ips.Patient-uv-ips
+          hl7-fhir-uv-ips.value-set.medical-devices-uv-ips
+          hl7-fhir-uv-ips.CodeableConcept-uv-ips},
+ schema {:zen.fhir/version "0.6.22-2",
+         :confirms #{hl7-fhir-r4-core.Device/schema zen.fhir/Resource},
+         :zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/Device-uv-ips",
+         :require #{:patient},
+         :type zen/map,
+         :zen/desc "This profile represents the constraints applied to the Device resource by the International Patient Summary (IPS) FHIR Implementation Guide, based on FHIR R4. A device used by or implanted on the patient is described in the patient summary as an instance of a Device resource constrained by this profile.",
+         :keys {:type {:type zen/vector,
+                       :slicing {:slices {}},
+                       :confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
+                       :fhir/flags #{:MS},
+                       :zen.fhir/value-set {:symbol hl7-fhir-uv-ips.value-set.medical-devices-uv-ips/value-set,
+                                            :strength :preferred},
+                       :zen/desc "Type of device.\r\nPreferably valued by using SNOMED CT.\r\nThe absence of information, or of devices relevant for purpose of this IPS, shall be explicitly stated by using the codes included in the absent-or-unknown-devices-uv-ips value set."},
+                :patient {:type zen/map,
+                          :keys {:reference {:fhir/flags #{:MS}}},
+                          :require #{:reference},
+                          :fhir/flags #{:MS},
+                          :confirms #{zen.fhir/Reference},
+                          :zen.fhir/reference {:refers #{hl7-fhir-uv-ips.Patient-uv-ips/schema}}}},
+         :zen.fhir/type "Device"}}

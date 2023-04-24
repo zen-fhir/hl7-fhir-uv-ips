@@ -1,0 +1,42 @@
+{ns hl7-fhir-uv-ips.Specimen-uv-ips,
+ import #{hl7-fhir-uv-ips.value-set.results-specimen-type-gps-uv-ips
+          zen.fhir
+          hl7-fhir-r4-core.Specimen
+          hl7-fhir-uv-ips.Patient-uv-ips
+          hl7-fhir-r4-core.value-set.body-site
+          hl7-fhir-uv-ips.value-set.results-specimen-collection-method-gps-uv-ips
+          hl7-fhir-uv-ips.CodeableConcept-uv-ips},
+ schema {:zen.fhir/version "0.6.22-2",
+         :confirms #{zen.fhir/Resource
+                     hl7-fhir-r4-core.Specimen/schema},
+         :zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/Specimen-uv-ips",
+         :require #{:type},
+         :type zen/map,
+         :zen/desc "This profile constrains the Specimen resource to represent the characteristics of a biological specimens in the context of laboratory results integrated to a patient summary.",
+         :keys {:type {:confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
+                       :fhir/flags #{:MS},
+                       :zen.fhir/value-set {:symbol hl7-fhir-uv-ips.value-set.results-specimen-type-gps-uv-ips/value-set,
+                                            :strength :extensible}},
+                :subject {:type zen/map,
+                          :keys {:reference {:fhir/flags #{:MS}}},
+                          :require #{:reference},
+                          :fhir/flags #{:MS},
+                          :confirms #{zen.fhir/Reference},
+                          :zen.fhir/reference {:refers #{hl7-fhir-uv-ips.Patient-uv-ips/schema}}},
+                :collection {:type zen/map,
+                             :keys {:method {:confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
+                                             :fhir/flags #{:MS},
+                                             :zen.fhir/value-set {:symbol hl7-fhir-uv-ips.value-set.results-specimen-collection-method-gps-uv-ips/value-set,
+                                                                  :strength :extensible}},
+                                    :bodySite {:confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
+                                               :fhir/flags #{:MS},
+                                               :zen.fhir/value-set {:symbol hl7-fhir-r4-core.value-set.body-site/value-set,
+                                                                    :strength :extensible}},
+                                    :fastingStatus {:fhir/polymorphic true,
+                                                    :type zen/map,
+                                                    :exclusive-keys #{#{:Duration
+                                                                        :CodeableConcept}},
+                                                    :fhir/flags #{:MS}}},
+                             :fhir/flags #{:MS}}},
+         :zen.fhir/type "Specimen"}}

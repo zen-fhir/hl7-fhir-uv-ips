@@ -1,0 +1,60 @@
+{ns hl7-fhir-uv-ips.Procedure-uv-ips,
+ import #{zen.fhir
+          hl7-fhir-r4-core.RelatedPerson
+          hl7-fhir-uv-ips.Patient-uv-ips
+          hl7-fhir-r4-core.value-set.body-site
+          hl7-fhir-uv-ips.Organization-uv-ips
+          hl7-fhir-uv-ips.Practitioner-uv-ips
+          hl7-fhir-uv-ips.PractitionerRole-uv-ips
+          hl7-fhir-r4-core.Procedure
+          hl7-fhir-uv-ips.Device-observer-uv-ips
+          hl7-fhir-r4-core.data-absent-reason
+          hl7-fhir-uv-ips.value-set.procedures-uv-ips
+          hl7-fhir-uv-ips.CodeableConcept-uv-ips},
+ schema {:zen.fhir/version "0.6.22-2",
+         :confirms #{hl7-fhir-r4-core.Procedure/schema
+                     zen.fhir/Resource},
+         :zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/Procedure-uv-ips",
+         :require #{:performed :code},
+         :type zen/map,
+         :zen/desc "This profile represents the constraints applied to the Procedure resource by the IPS project, which specifies an entry of the History of Procedure for the international patient summary based on the FHIR standard R4.",
+         :keys {:status {:fhir/flags #{:MS}},
+                :code {:type zen/vector,
+                       :slicing {:slices {}},
+                       :confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
+                       :fhir/flags #{:MS},
+                       :zen.fhir/value-set {:symbol hl7-fhir-uv-ips.value-set.procedures-uv-ips/value-set,
+                                            :strength :preferred}},
+                :subject {:type zen/map,
+                          :keys {:reference {:fhir/flags #{:MS}}},
+                          :require #{:reference},
+                          :fhir/flags #{:MS},
+                          :confirms #{zen.fhir/Reference},
+                          :zen.fhir/reference {:refers #{hl7-fhir-uv-ips.Patient-uv-ips/schema}}},
+                :performed {:fhir/polymorphic true,
+                            :type zen/map,
+                            :keys {:data-absent-reason {:confirms #{hl7-fhir-r4-core.data-absent-reason/schema},
+                                                        :fhir/extensionUri "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                                                        :fhir/flags #{:MS},
+                                                        :zen/desc "performed[x] absence reason"}},
+                            :fhir/flags #{:MS}},
+                :asserter {:confirms #{zen.fhir/Reference},
+                           :zen.fhir/reference {:refers #{}}},
+                :performer {:type zen/vector,
+                            :every {:type zen/map,
+                                    :keys {:actor {:confirms #{zen.fhir/Reference},
+                                                   :zen.fhir/reference {:refers #{hl7-fhir-uv-ips.PractitionerRole-uv-ips/schema
+                                                                                  hl7-fhir-uv-ips.Device-observer-uv-ips/schema
+                                                                                  hl7-fhir-uv-ips.Patient-uv-ips/schema
+                                                                                  hl7-fhir-uv-ips.Practitioner-uv-ips/schema
+                                                                                  hl7-fhir-r4-core.RelatedPerson/schema
+                                                                                  hl7-fhir-uv-ips.Organization-uv-ips/schema}}},
+                                           :onBehalfOf {:confirms #{zen.fhir/Reference},
+                                                        :zen.fhir/reference {:refers #{hl7-fhir-uv-ips.Organization-uv-ips/schema}}}}}},
+                :bodySite {:type zen/vector,
+                           :every {:confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
+                                   :fhir/flags #{:MS},
+                                   :zen.fhir/value-set {:symbol hl7-fhir-r4-core.value-set.body-site/value-set,
+                                                        :strength :example}}}},
+         :zen.fhir/type "Procedure"}}

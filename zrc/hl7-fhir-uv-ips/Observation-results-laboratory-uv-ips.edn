@@ -1,0 +1,73 @@
+{ns hl7-fhir-uv-ips.Observation-results-laboratory-uv-ips,
+ import #{zen.fhir
+          hl7-fhir-uv-ips.Observation-results-laboratory-uv-ips
+          hl7-fhir-uv-ips.value-set.result-coded-value-laboratory-gps-uv-ips
+          hl7-fhir-uv-ips.Organization-uv-ips
+          hl7-fhir-uv-ips.Practitioner-uv-ips
+          hl7-fhir-uv-ips.Range-uv-ips
+          hl7-fhir-uv-ips.Ratio-uv-ips
+          hl7-fhir-uv-ips.Observation-results-uv-ips
+          hl7-fhir-uv-ips.PractitionerRole-uv-ips
+          hl7-fhir-uv-ips.Quantity-uv-ips
+          hl7-fhir-uv-ips.value-set.results-laboratory-observations-uv-ips
+          hl7-fhir-uv-ips.Specimen-uv-ips
+          hl7-fhir-uv-ips.CodeableConcept-uv-ips},
+ referenceRange-schema {:zen/tags #{zen/schema
+                                    zen.fhir/structure-schema},
+                        :zen.fhir/version "0.6.22-2",
+                        :fhir/flags #{:MS}},
+ schema {:zen.fhir/version "0.6.22-2",
+         :confirms #{hl7-fhir-uv-ips.Observation-results-uv-ips/schema
+                     zen.fhir/Resource},
+         :zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-laboratory-uv-ips",
+         :require #{:category :performer},
+         :type zen/map,
+         :zen/desc "This profile constrains the Observation resource to represent results produced by laboratory tests or panels/studies in a patient summary.\r\n\r\nThis observation may represent the result of a simple laboratory test such as hematocrit or it may group the set of results produced by a multi-test study or panel such as a complete blood count, a dynamic function test, a urine specimen study. In the latter case, the observation carries the overall conclusion of the study and or a global interpretation by the producer of the study, in the comment element; and references the atomic results of the study as \"has-member\" child observations.\r\n",
+         :keys {:category {:type zen/vector,
+                           :slicing {:slices {"laboratory" {:schema {:type zen/vector,
+                                                                     :minItems 1,
+                                                                     :maxItems 1},
+                                                            :filter {:engine :match,
+                                                                     :match {:coding #{{:system "http://terminology.hl7.org/CodeSystem/observation-category",
+                                                                                        :code "laboratory"}}}}}}},
+                           :every {:confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
+                                   :fhir/flags #{:MS}},
+                           :minItems 1},
+                :code {:fhir/flags #{:MS},
+                       :zen.fhir/value-set {:symbol hl7-fhir-uv-ips.value-set.results-laboratory-observations-uv-ips/value-set,
+                                            :strength :extensible}},
+                :performer {:type zen/vector,
+                            :every {:fhir/flags #{:MS},
+                                    :confirms #{zen.fhir/Reference},
+                                    :zen.fhir/reference {:refers #{hl7-fhir-uv-ips.PractitionerRole-uv-ips/schema
+                                                                   hl7-fhir-uv-ips.Practitioner-uv-ips/schema
+                                                                   hl7-fhir-uv-ips.Organization-uv-ips/schema}}},
+                            :minItems 1},
+                :value {:fhir/polymorphic true,
+                        :type zen/map,
+                        :keys {:string {:fhir/flags #{:MS}},
+                               :Range {:confirms #{hl7-fhir-uv-ips.Range-uv-ips/schema}},
+                               :Ratio {:confirms #{hl7-fhir-uv-ips.Ratio-uv-ips/schema}},
+                               :CodeableConcept {:confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
+                                                 :fhir/flags #{:MS},
+                                                 :zen.fhir/value-set {:symbol hl7-fhir-uv-ips.value-set.result-coded-value-laboratory-gps-uv-ips/value-set,
+                                                                      :strength :preferred}},
+                               :Quantity {:confirms #{hl7-fhir-uv-ips.Quantity-uv-ips/schema},
+                                          :fhir/flags #{:MS}}},
+                        :fhir/flags #{:MS}},
+                :interpretation {:type zen/vector,
+                                 :every {:confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
+                                         :fhir/flags #{:MS}}},
+                :specimen {:confirms #{hl7-fhir-uv-ips.Specimen-uv-ips/schema},
+                           :fhir/flags #{:MS}},
+                :referenceRange {:type zen/vector,
+                                 :every {:confirms #{hl7-fhir-uv-ips.Observation-results-laboratory-uv-ips/referenceRange-schema}}},
+                :hasMember {:type zen/vector,
+                            :every {:type zen/map,
+                                    :keys {:reference {:fhir/flags #{:MS}}},
+                                    :fhir/flags #{:MS},
+                                    :confirms #{zen.fhir/Reference},
+                                    :zen.fhir/reference {:refers #{hl7-fhir-uv-ips.Observation-results-laboratory-uv-ips/schema
+                                                                   hl7-fhir-uv-ips.Observation-results-uv-ips/schema}}}}},
+         :zen.fhir/type "Observation"}}

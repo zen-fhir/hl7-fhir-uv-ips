@@ -1,0 +1,18 @@
+{ns hl7-fhir-uv-ips.value-set.results-radiology-numobs-gps-dicom-uv-ips,
+ import #{zen.fhir},
+ value-set {:zen/tags #{zen.fhir/value-set},
+            :zen/desc "Extensible value set including SNOMED CT GPS and DICOM concepts for Linear, Area and Volume Measurements",
+            :zen.fhir/version "0.6.22-2",
+            :fhir/code-systems #{{:fhir/url "http://snomed.info/sct",
+                                  :zen.fhir/content :bundled}
+                                 {:fhir/url "http://dicom.nema.org/resources/ontology/DCM",
+                                  :zen.fhir/content :bundled}},
+            :uri "http://hl7.org/fhir/uv/ips/ValueSet/results-radiology-numobs-gps-dicom-uv-ips",
+            :version "1.0.0",
+            :ftr {:module "hl7-fhir-uv-ips",
+                  :source-url "https://storage.googleapis.com",
+                  :source-type :cloud-storage,
+                  :ftr-path "ftr",
+                  :tag "init",
+                  :validation-index {:type :nippy,
+                                     :file "index.nippy"}}}}

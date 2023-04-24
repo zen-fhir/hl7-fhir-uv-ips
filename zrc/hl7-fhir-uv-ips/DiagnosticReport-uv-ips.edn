@@ -1,0 +1,54 @@
+{ns hl7-fhir-uv-ips.DiagnosticReport-uv-ips,
+ import #{hl7-fhir-r4-core.CareTeam
+          zen.fhir
+          hl7-fhir-r4-core.Group
+          hl7-fhir-r4-core.DiagnosticReport
+          hl7-fhir-uv-ips.Patient-uv-ips
+          hl7-fhir-uv-ips.Organization-uv-ips
+          hl7-fhir-uv-ips.Practitioner-uv-ips
+          hl7-fhir-uv-ips.PractitionerRole-uv-ips
+          hl7-fhir-uv-ips.Specimen-uv-ips
+          hl7-fhir-uv-ips.CodeableConcept-uv-ips},
+ schema {:zen.fhir/version "0.6.22-2",
+         :confirms #{hl7-fhir-r4-core.DiagnosticReport/schema
+                     zen.fhir/Resource},
+         :zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/DiagnosticReport-uv-ips",
+         :require #{:category :effective :subject},
+         :type zen/map,
+         :zen/desc "This profile constrains the DiagnosticReport resource to represent diagnostic test and procedure reports in a patient summary.",
+         :keys {:category {:type zen/vector,
+                           :every {:confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
+                                   :fhir/flags #{:MS}},
+                           :minItems 1,
+                           :maxItems 1},
+                :specimen {:type zen/vector,
+                           :every {:confirms #{zen.fhir/Reference},
+                                   :zen.fhir/reference {:refers #{hl7-fhir-uv-ips.Specimen-uv-ips/schema}}}},
+                :status {:const {:value "final"}, :fhir/flags #{:MS}},
+                :result {:type zen/vector,
+                         :every {:fhir/flags #{:MS},
+                                 :confirms #{zen.fhir/Reference},
+                                 :zen.fhir/reference {:refers #{}},
+                                 :zen/desc "Observation results included in the diagnostic report."}},
+                :effective {:fhir/polymorphic true,
+                            :type zen/map,
+                            :exclusive-keys #{#{:dateTime :Period}},
+                            :fhir/flags #{:MS}},
+                :code {:confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
+                       :fhir/flags #{:MS}},
+                :subject {:type zen/map,
+                          :keys {:reference {:fhir/flags #{:MS}}},
+                          :require #{:reference},
+                          :fhir/flags #{:MS},
+                          :confirms #{zen.fhir/Reference},
+                          :zen.fhir/reference {:refers #{hl7-fhir-uv-ips.Patient-uv-ips/schema
+                                                         hl7-fhir-r4-core.Group/schema}}},
+                :performer {:type zen/vector,
+                            :every {:fhir/flags #{:MS},
+                                    :confirms #{zen.fhir/Reference},
+                                    :zen.fhir/reference {:refers #{hl7-fhir-uv-ips.PractitionerRole-uv-ips/schema
+                                                                   hl7-fhir-r4-core.CareTeam/schema
+                                                                   hl7-fhir-uv-ips.Practitioner-uv-ips/schema
+                                                                   hl7-fhir-uv-ips.Organization-uv-ips/schema}}}}},
+         :zen.fhir/type "DiagnosticReport"}}

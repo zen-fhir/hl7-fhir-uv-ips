@@ -1,0 +1,16 @@
+{ns hl7-fhir-uv-ips.Range-uv-ips,
+ import #{zen.fhir
+          hl7-fhir-r4-core.Range
+          hl7-fhir-uv-ips.SimpleQuantity-uv-ips},
+ schema {:zen.fhir/version "0.6.22-2",
+         :confirms #{hl7-fhir-r4-core.Range/schema},
+         :zen/tags #{zen/schema zen.fhir/structure-schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/Range-uv-ips",
+         :type zen/map,
+         :zen/desc "Range constrained to UCUM as the code system for units.",
+         :fhir/flags #{:MS},
+         :keys {:low {:confirms #{hl7-fhir-uv-ips.SimpleQuantity-uv-ips/schema},
+                      :fhir/flags #{:MS}},
+                :high {:confirms #{hl7-fhir-uv-ips.SimpleQuantity-uv-ips/schema},
+                       :fhir/flags #{:MS}}},
+         :zen.fhir/type "Range"}}
