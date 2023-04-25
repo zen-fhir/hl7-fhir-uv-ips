@@ -2,7 +2,7 @@
  import #{zen.fhir
           hl7-fhir-r4-core.Coding
           hl7-fhir-r4-core.translation},
- schema {:zen.fhir/version "0.6.22-2",
+ schema {:zen.fhir/version "0.6.23",
          :confirms #{hl7-fhir-r4-core.Coding/schema},
          :zen/tags #{zen/schema zen.fhir/structure-schema},
          :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/Coding-uv-ips",
