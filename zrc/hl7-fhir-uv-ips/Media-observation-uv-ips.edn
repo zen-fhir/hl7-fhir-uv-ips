@@ -3,7 +3,7 @@
           hl7-fhir-uv-ips.Patient-uv-ips
           hl7-fhir-r4-core.Media
           hl7-fhir-uv-ips.CodeableConcept-uv-ips},
- schema {:zen.fhir/version "0.6.23-1",
+ schema {:zen.fhir/version "0.6.24",
          :confirms #{hl7-fhir-r4-core.Media/schema zen.fhir/Resource},
          :zen/tags #{zen.fhir/profile-schema zen/schema},
          :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/Media-observation-uv-ips",

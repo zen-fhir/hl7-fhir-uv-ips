@@ -2,13 +2,9 @@
  import #{hl7-fhir-r4-core.Observation
           zen.fhir
           hl7-fhir-uv-ips.Patient-uv-ips
-          hl7-fhir-uv-ips.Observation-alcoholuse-uv-ips
           hl7-fhir-uv-ips.Quantity-uv-ips
           hl7-fhir-uv-ips.CodeableConcept-uv-ips},
- referenceRange-schema {:zen/tags #{zen/schema
-                                    zen.fhir/structure-schema},
-                        :zen.fhir/version "0.6.23-1"},
- schema {:zen.fhir/version "0.6.23-1",
+ schema {:zen.fhir/version "0.6.24",
          :confirms #{hl7-fhir-r4-core.Observation/schema
                      zen.fhir/Resource},
          :zen/tags #{zen.fhir/profile-schema zen/schema},
@@ -33,6 +29,5 @@
                 :value {:type zen/map,
                         :keys {:Quantity {:confirms #{hl7-fhir-uv-ips.Quantity-uv-ips/schema},
                                           :fhir/flags #{:MS}}}},
-                :component {:type zen/vector, :maxItems 0},
-                :referenceRange {:confirms #{hl7-fhir-uv-ips.Observation-alcoholuse-uv-ips/referenceRange-schema}}},
+                :component {:type zen/vector, :maxItems 0}},
          :zen.fhir/type "Observation"}}

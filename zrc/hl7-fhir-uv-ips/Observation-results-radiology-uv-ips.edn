@@ -11,10 +11,7 @@
           hl7-fhir-uv-ips.Device-observer-uv-ips
           hl7-fhir-uv-ips.Observation-results-radiology-uv-ips
           hl7-fhir-uv-ips.CodeableConcept-uv-ips},
- referenceRange-schema {:zen/tags #{zen/schema
-                                    zen.fhir/structure-schema},
-                        :zen.fhir/version "0.6.23-1"},
- schema {:zen.fhir/version "0.6.23-1",
+ schema {:zen.fhir/version "0.6.24",
          :confirms #{hl7-fhir-uv-ips.Observation-results-uv-ips/schema
                      zen.fhir/Resource},
          :zen/tags #{zen.fhir/profile-schema zen/schema},
@@ -32,7 +29,6 @@
                            :every {:confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
                                    :fhir/flags #{:MS}},
                            :minItems 1},
-                :referenceRange {:confirms #{hl7-fhir-uv-ips.Observation-results-radiology-uv-ips/referenceRange-schema}},
                 :hasMember {:type zen/vector,
                             :every {:type zen/map,
                                     :keys {:reference {:fhir/flags #{:MS}}},

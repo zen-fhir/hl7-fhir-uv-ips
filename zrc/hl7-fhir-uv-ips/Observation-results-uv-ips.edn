@@ -14,10 +14,7 @@
           hl7-fhir-r4-core.QuestionnaireResponse
           hl7-fhir-r4-core.Location
           hl7-fhir-uv-ips.CodeableConcept-uv-ips},
- referenceRange-schema {:zen/tags #{zen/schema
-                                    zen.fhir/structure-schema},
-                        :zen.fhir/version "0.6.23-1"},
- schema {:zen.fhir/version "0.6.23-1",
+ schema {:zen.fhir/version "0.6.24",
          :confirms #{hl7-fhir-r4-core.Observation/schema
                      zen.fhir/Resource},
          :zen/tags #{zen.fhir/profile-schema zen/schema},
@@ -28,7 +25,6 @@
          :keys {:category {:type zen/vector,
                            :every {:confirms #{hl7-fhir-uv-ips.CodeableConcept-uv-ips/schema},
                                    :fhir/flags #{:MS}}},
-                :referenceRange {:confirms #{hl7-fhir-uv-ips.Observation-results-uv-ips/referenceRange-schema}},
                 :hasMember {:type zen/vector,
                             :every {:fhir/flags #{:MS},
                                     :confirms #{zen.fhir/Reference},

@@ -13,10 +13,7 @@
           hl7-fhir-uv-ips.value-set.results-pathology-observations-uv-ips
           hl7-fhir-uv-ips.Specimen-uv-ips
           hl7-fhir-uv-ips.CodeableConcept-uv-ips},
- referenceRange-schema {:zen/tags #{zen/schema
-                                    zen.fhir/structure-schema},
-                        :zen.fhir/version "0.6.23-1"},
- schema {:zen.fhir/version "0.6.23-1",
+ schema {:zen.fhir/version "0.6.24",
          :confirms #{hl7-fhir-uv-ips.Observation-results-uv-ips/schema
                      zen.fhir/Resource},
          :zen/tags #{zen.fhir/profile-schema zen/schema},
@@ -68,6 +65,5 @@
                                     :fhir/flags #{:MS},
                                     :confirms #{zen.fhir/Reference},
                                     :zen.fhir/reference {:refers #{hl7-fhir-uv-ips.Observation-results-uv-ips/schema
-                                                                   hl7-fhir-uv-ips.Observation-results-pathology-uv-ips/schema}}}},
-                :referenceRange {:confirms #{hl7-fhir-uv-ips.Observation-results-pathology-uv-ips/referenceRange-schema}}},
+                                                                   hl7-fhir-uv-ips.Observation-results-pathology-uv-ips/schema}}}}},
          :zen.fhir/type "Observation"}}

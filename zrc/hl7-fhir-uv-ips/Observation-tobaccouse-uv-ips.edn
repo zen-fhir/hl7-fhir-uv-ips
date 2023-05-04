@@ -3,12 +3,8 @@
           zen.fhir
           hl7-fhir-uv-ips.Patient-uv-ips
           hl7-fhir-uv-ips.value-set.current-smoking-status-uv-ips
-          hl7-fhir-uv-ips.Observation-tobaccouse-uv-ips
           hl7-fhir-uv-ips.CodeableConcept-uv-ips},
- referenceRange-schema {:zen/tags #{zen/schema
-                                    zen.fhir/structure-schema},
-                        :zen.fhir/version "0.6.23-1"},
- schema {:zen.fhir/version "0.6.23-1",
+ schema {:zen.fhir/version "0.6.24",
          :confirms #{hl7-fhir-r4-core.Observation/schema
                      zen.fhir/Resource},
          :zen/tags #{zen.fhir/profile-schema zen/schema},
@@ -34,6 +30,5 @@
                                                  :fhir/flags #{:MS},
                                                  :zen.fhir/value-set {:symbol hl7-fhir-uv-ips.value-set.current-smoking-status-uv-ips/value-set,
                                                                       :strength :required}}}},
-                :component {:type zen/vector, :maxItems 0},
-                :referenceRange {:confirms #{hl7-fhir-uv-ips.Observation-tobaccouse-uv-ips/referenceRange-schema}}},
+                :component {:type zen/vector, :maxItems 0}},
          :zen.fhir/type "Observation"}}

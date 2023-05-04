@@ -2,7 +2,7 @@
  import #{zen.fhir},
  value-set {:zen/tags #{zen.fhir/value-set},
             :zen/desc "This Value set is defined as the union of: (a) ABO and Rh group [Type] in Blood (2.16.840.1.113883.11.22.51); (b) Presence/Absence Indicators (2.16.840.1.113883.11.22.52) (c) Organisms (2.16.840.1.113883.11.22.49)",
-            :zen.fhir/version "0.6.23-1",
+            :zen.fhir/version "0.6.24",
             :fhir/code-systems #{{:fhir/url "http://snomed.info/sct",
                                   :zen.fhir/content :bundled}},
             :uri "http://hl7.org/fhir/uv/ips/ValueSet/result-coded-value-laboratory-gps-uv-ips",
