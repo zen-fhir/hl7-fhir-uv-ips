@@ -2,7 +2,7 @@
  import #{zen.fhir},
  value-set {:zen/tags #{zen.fhir/value-set},
             :zen/desc "IPS Allergy intolerance substance condition value set. This value set includes codes from SNOMED Clinical Terms®: all descendants of 762766007 | Edible substance (substance); all descendants of 406455002 | Allergen class (substance); all descendants of 425620007 | Metal (substance); all descendants of 373873005 | Pharmaceutical / biologic product (product); all descendants of 410942007 |Drug or medicament (substance)",
-            :zen.fhir/version "0.6.25-1",
+            :zen.fhir/version "0.6.27",
             :fhir/code-systems #{{:fhir/url "http://snomed.info/sct",
                                   :zen.fhir/content :not-present}},
             :uri "http://hl7.org/fhir/uv/ips/ValueSet/allergy-intolerance-substance-condition-uv-ips",
