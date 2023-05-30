@@ -1,6 +1,6 @@
 {ns hl7-fhir-uv-ips.Quantity-uv-ips,
  import #{zen.fhir hl7-fhir-r4-core.Quantity},
- schema {:zen.fhir/version "0.6.27",
+ schema {:zen.fhir/version "0.6.28",
          :confirms #{hl7-fhir-r4-core.Quantity/schema},
          :zen/tags #{zen/schema zen.fhir/structure-schema},
          :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/Quantity-uv-ips",
