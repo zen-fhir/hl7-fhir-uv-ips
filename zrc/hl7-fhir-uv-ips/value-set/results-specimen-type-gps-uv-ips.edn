@@ -2,7 +2,7 @@
  import #{zen.fhir},
  value-set {:zen/tags #{zen.fhir/value-set},
             :zen/desc "IPS Specimen Type GPS value set. This value set includes a set of codes from the SNOMED International Global Patient Set (GPS) subset of SNOMED CT that may be used to represent specimen types.  The current value set contains concepts from the September 2019 release of the GPS, which is based on the July 2019 SNOMED CT International Edition release.",
-            :zen.fhir/version "0.6.28",
+            :zen.fhir/version "0.6.29",
             :fhir/code-systems #{{:fhir/url "http://snomed.info/sct",
                                   :zen.fhir/content :bundled}},
             :uri "http://hl7.org/fhir/uv/ips/ValueSet/results-specimen-type-gps-uv-ips",

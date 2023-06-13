@@ -2,7 +2,7 @@
  import #{zen.fhir},
  value-set {:zen/tags #{zen.fhir/value-set},
             :zen/desc "This is a value set of the SNOMED CT organism concepts contained in the SNOMED CT Global Patient Set (GPS) for use in the Results section observation values.  The concepts currently included in the value set are from the September 2019 release of the GPS, which is based on the July 2019 SNOMED CT International Edition release.  This value set additionally contains the recently added SNOMED CT concept for the Coronavirus organism from the March 2020 Interim International Release.",
-            :zen.fhir/version "0.6.28",
+            :zen.fhir/version "0.6.29",
             :fhir/code-systems #{{:fhir/url "http://snomed.info/sct",
                                   :zen.fhir/content :bundled}},
             :uri "http://hl7.org/fhir/uv/ips/ValueSet/results-organism-gps-uv-ips",

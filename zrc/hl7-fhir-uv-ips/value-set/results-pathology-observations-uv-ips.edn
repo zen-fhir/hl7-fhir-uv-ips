@@ -2,7 +2,7 @@
  import #{zen.fhir},
  value-set {:zen/tags #{zen.fhir/value-set},
             :zen/desc "\n Value Set Definition:\n\n LOINC {STATUS in {ACTIVE}, CLASSTYPE in {1}, CLASS in {CYTO, HL7.CYTOGEN, HL7.GENETICS, MOLPATH, MOLPATH.\\*, PATH, PATH.\\*}}",
-            :zen.fhir/version "0.6.28",
+            :zen.fhir/version "0.6.29",
             :fhir/code-systems #{{:fhir/url "http://loinc.org",
                                   :zen.fhir/content :not-present}},
             :uri "http://hl7.org/fhir/uv/ips/ValueSet/results-pathology-observations-uv-ips",
