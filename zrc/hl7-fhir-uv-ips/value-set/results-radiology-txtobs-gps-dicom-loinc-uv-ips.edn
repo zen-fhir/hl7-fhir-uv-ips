@@ -2,7 +2,7 @@
  import #{zen.fhir},
  value-set {:zen/tags #{zen.fhir/value-set},
             :zen/desc "IPS Results Radiology Textual Observations",
-            :zen.fhir/version "0.6.29-22",
+            :zen.fhir/version "0.6.29-4",
             :fhir/code-systems #{{:fhir/url "http://snomed.info/sct",
                                   :zen.fhir/content :bundled}
                                  {:fhir/url "http://dicom.nema.org/resources/ontology/DCM",
