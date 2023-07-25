@@ -2,7 +2,7 @@
  import #{zen.fhir},
  value-set {:zen/tags #{zen.fhir/value-set},
             :zen/desc "Extensible value set including SNOMED CT GPS and DICOM concepts for Linear, Area and Volume Measurements",
-            :zen.fhir/version "0.6.30",
+            :zen.fhir/version "0.6.30-1",
             :fhir/code-systems #{{:fhir/url "http://snomed.info/sct",
                                   :zen.fhir/content :bundled}
                                  {:fhir/url "http://dicom.nema.org/resources/ontology/DCM",

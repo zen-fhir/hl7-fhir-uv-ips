@@ -8,7 +8,7 @@
          :zen/desc "This profile constrains the PractitionerRole resource to represent a practitioner acting as observer for observattion results for a specified organization.",
          :zen.fhir/type "PractitionerRole",
          :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/PractitionerRole-uv-ips",
-         :zen.fhir/version "0.6.30",
+         :zen.fhir/version "0.6.30-1",
          :confirms #{hl7-fhir-r4-core.PractitionerRole/schema
                      zen.fhir/Resource},
          :type zen/map,

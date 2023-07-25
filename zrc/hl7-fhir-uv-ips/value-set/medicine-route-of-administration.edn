@@ -2,7 +2,7 @@
  import #{zen.fhir},
  value-set {:zen/tags #{zen.fhir/value-set},
             :zen/desc "EDQM Route of Administration codes.  This Value Set includes all the EDQM Standard Terms having:  \n[Concept Status] = ‘Current’ AND  \n[Concept Class] = 'route of administration' AND  \n[Domain] = 'Human and Veterinary'",
-            :zen.fhir/version "0.6.30",
+            :zen.fhir/version "0.6.30-1",
             :fhir/code-systems #{{:fhir/url "http://standardterms.edqm.eu",
                                   :zen.fhir/content :bundled}},
             :uri "http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration",
