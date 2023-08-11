@@ -2,7 +2,7 @@
  import #{zen.fhir},
  value-set {:zen/tags #{zen.fhir/value-set},
             :zen/desc "Value Set based on HL7 Vocab TC and Structured Doc consensus (per CDC submission 7/12/2012 for smoking status term)",
-            :zen.fhir/version "0.6.30-12",
+            :zen.fhir/version "0.6.30-13",
             :fhir/code-systems #{{:fhir/url "http://loinc.org",
                                   :zen.fhir/content :bundled}},
             :uri "http://hl7.org/fhir/uv/ips/ValueSet/current-smoking-status-uv-ips",
