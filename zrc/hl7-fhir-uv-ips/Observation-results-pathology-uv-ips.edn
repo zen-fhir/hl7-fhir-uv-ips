@@ -13,7 +13,7 @@
           hl7-fhir-uv-ips.value-set.results-pathology-observations-uv-ips
           hl7-fhir-uv-ips.Specimen-uv-ips
           hl7-fhir-uv-ips.CodeableConcept-uv-ips},
- schema {:zen.fhir/version "0.6.30-13",
+ schema {:zen.fhir/version "0.6.30-14",
          :confirms #{hl7-fhir-uv-ips.Observation-results-uv-ips/schema
                      zen.fhir/Resource},
          :zen/tags #{zen.fhir/profile-schema zen/schema},

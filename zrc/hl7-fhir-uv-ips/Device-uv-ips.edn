@@ -4,7 +4,7 @@
           hl7-fhir-uv-ips.Patient-uv-ips
           hl7-fhir-uv-ips.value-set.medical-devices-uv-ips
           hl7-fhir-uv-ips.CodeableConcept-uv-ips},
- schema {:zen.fhir/version "0.6.30-13",
+ schema {:zen.fhir/version "0.6.30-14",
          :confirms #{hl7-fhir-r4-core.Device/schema zen.fhir/Resource},
          :zen/tags #{zen.fhir/profile-schema zen/schema},
          :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/Device-uv-ips",
