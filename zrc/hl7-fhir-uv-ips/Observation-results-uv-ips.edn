@@ -14,7 +14,7 @@
           hl7-fhir-r4-core.QuestionnaireResponse
           hl7-fhir-r4-core.Location
           hl7-fhir-uv-ips.CodeableConcept-uv-ips},
- schema {:zen.fhir/version "0.6.30-7",
+ schema {:zen.fhir/version "0.6.30-10",
          :confirms #{hl7-fhir-r4-core.Observation/schema
                      zen.fhir/Resource},
          :zen/tags #{zen.fhir/profile-schema zen/schema},
