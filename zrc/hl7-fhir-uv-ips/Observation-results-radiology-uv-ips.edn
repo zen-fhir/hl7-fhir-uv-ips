@@ -11,7 +11,7 @@
           hl7-fhir-uv-ips.Device-observer-uv-ips
           hl7-fhir-uv-ips.Observation-results-radiology-uv-ips
           hl7-fhir-uv-ips.CodeableConcept-uv-ips},
- schema {:zen.fhir/version "0.6.30-11",
+ schema {:zen.fhir/version "0.6.30-12",
          :confirms #{hl7-fhir-uv-ips.Observation-results-uv-ips/schema
                      zen.fhir/Resource},
          :zen/tags #{zen.fhir/profile-schema zen/schema},

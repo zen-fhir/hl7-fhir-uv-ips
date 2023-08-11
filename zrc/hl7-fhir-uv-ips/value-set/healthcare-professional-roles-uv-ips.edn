@@ -2,7 +2,7 @@
  import #{zen.fhir},
  value-set {:zen/tags #{zen.fhir/value-set},
             :zen/desc "IPS Healthcare Professional Roles",
-            :zen.fhir/version "0.6.30-11",
+            :zen.fhir/version "0.6.30-12",
             :fhir/code-systems #{{:fhir/url "urn:oid:2.16.840.1.113883.2.9.6.2.7",
                                   :zen.fhir/content :bundled}},
             :uri "http://hl7.org/fhir/uv/ips/ValueSet/healthcare-professional-roles-uv-ips",
