@@ -14,9 +14,9 @@
           hl7-fhir-uv-ips.CodeableConcept-uv-ips},
  referenceRange-schema {:zen/tags #{zen/schema
                                     zen.fhir/structure-schema},
-                        :zen.fhir/version "0.6.30-14",
+                        :zen.fhir/version "0.6.31",
                         :fhir/flags #{:MS}},
- schema {:zen.fhir/version "0.6.30-14",
+ schema {:zen.fhir/version "0.6.31",
          :confirms #{hl7-fhir-uv-ips.Observation-results-uv-ips/schema
                      zen.fhir/Resource},
          :zen/tags #{zen.fhir/profile-schema zen/schema},

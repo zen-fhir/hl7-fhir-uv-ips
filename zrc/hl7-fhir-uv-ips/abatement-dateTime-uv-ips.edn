@@ -6,6 +6,6 @@
          :zen/desc "Extension defined by the IPS project to describe the abatement date for allergies",
          :zen.fhir/type "dateTime",
          :zen.fhir/profileUri "http://hl7.org/fhir/uv/ips/StructureDefinition/abatement-dateTime-uv-ips",
-         :zen.fhir/version "0.6.30-14",
+         :zen.fhir/version "0.6.31",
          :confirms #{hl7-fhir-r4-core.dateTime/schema},
          :fhir/flags #{:MS}}}
